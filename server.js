@@ -10,9 +10,9 @@ app.use(express.static(__dirname + "/client/static"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/client/views');
-
+// app.set('view engine', 'ejs');
+// app.set('views', __dirname + '/client/views');
+app.use(express.static( __dirname + '/public/dist/public' ));
 
 require ('./server/config/routes.js')(app);
 
