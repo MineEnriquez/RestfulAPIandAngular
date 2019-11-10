@@ -3,7 +3,7 @@ const app = express();
 const session = require('express-session');
 const mongoose = require('mongoose');
 const flash = require('express-flash');
-mongoose.connect('mongodb://localhost/TasksDB', { useNewUrlParser: true });
+require('./server/config/mongoose.js');
 
 app.listen(8000, () => console.log("listening on port 8000"));
 app.use(express.static(__dirname + "/client/static"));

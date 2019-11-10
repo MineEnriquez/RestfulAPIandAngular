@@ -24,6 +24,24 @@ module.exports = {
             })
             .catch(err => res.json(err));
     },
+    updateId: function (req, res) {
+        console.log("Update a document");
+        console.log(req.body);
+        Task.update({ _id: req.params.id }, req.body)
+            .then(data => {
+                console.log(data);
+                res.json({ data: data[0] })
+            })
+            .catch(err => res.json(err));
+    },
+    deleteId: function (req, res) {
+        console.log(`*** Deleting:   ${req.params.id}`);
+        Task.remove({ _id: req.params.id })
+            .then(data => {
+                res.json({"Data removed":req.params.name})
+            })
+            .catch(err => res.json(err));
+    },
     retrieveTitle: function (req, res) {
         console.log("Retrieve one document");
         Task.find({ title: req.params.title })
@@ -31,9 +49,6 @@ module.exports = {
                 res.json({ data: data[0] })
             })
             .catch(err => res.json(err));
-    },
-    updateOne: function (req, res) {
-        console.log("Will update a record")
     },
 
     newtask: function (req, res) {
