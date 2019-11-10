@@ -1,0 +1,10 @@
+.wrapperNarrow {
+    width: 400px;
+    border: gray solid 3px;
+    margin: auto auto;
+    padding: 60px 20px;
+    align-items: center;
+  }
+  h1, h2, h3, .textCentered{
+    text-align: center;
+}

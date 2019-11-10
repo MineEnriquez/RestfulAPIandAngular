@@ -12,7 +12,7 @@ module.exports = {
             .then(tasks => {
                 console.log(tasks);
 
-                res.json(tasks);   // TODO: if API then we should return only the JSON object.
+                res.json(tasks);   // NOTE: if API then we should return only the JSON object.
             })
             .catch(err => res.json(err));
     },
