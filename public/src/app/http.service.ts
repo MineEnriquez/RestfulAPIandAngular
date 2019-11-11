@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -12,31 +13,22 @@ export class HttpService {
     this.getByTitle("task 4");
   }
   getTasks() {
-    // // our http response is an Observable, store it in a variable
-    // let tempObservable = this._http.get('/api/tasks/retrieveall');
-    
     return this._http.get('/api/tasks/retrieveall'); //now this function will only invoke the call to the API instead of handling it.
-
-    // // subscribe to the Observable and provide the code we would like to do with our data from the response
-    // tempObservable.subscribe(data => console.log("Got our tasks!", data));
+  }
+  getById(data: Object) {
+    return this._http.get('/api/tasks/retrieveId/' + data['id']); /* Same with this one */
+  }
+  getByTitle(data: Object) {
+    console.log(`service request for task: ${data['title']}`);
+    return this._http.get('/api/tasks/retrieveTitle/' + data['title']);   /* And this one*/
+  }
+  e2endtest(num: any) {
+    return this._http.post('/e2etest', num);
+  }
+  getTaskById(data: Object) {
+    console.log(data['id']);
+    return this._http.get('/api/tasks/retrieveId/' + data['id']); /* Same with this one */
 
   }
-  getById(_id: string) {
-
-    //let tempobservable = this._http.get('/api/tasks/retrieveId/' + _id);
-
-    return this._http.get('/api/tasks/retrieveId/' + _id); /* Same with this one */
-    
-    // tempobservable.subscribe(data => console.log("Got our tasks!", data));
-
-  }
-  getByTitle(_title: string) {
-    //let tempobservable = this._http.get('/api/tasks/retrieveTitle/' + _title);
-    
-    return this._http.get('/api/tasks/retrieveTitle/' + _title);   /* And this one*/
-
-    // tempobservable.subscribe(data => console.log("Got our tasks!", data));
-  }
-
 }
 

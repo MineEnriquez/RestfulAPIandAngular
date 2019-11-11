@@ -16,26 +16,41 @@
       <h1>Restful Tasks API</h1>
       <h2>All the tasks:</h2>
     </div>
-    <!-- <h3>Value of num is: {{num}}</h3>
+    <div>
+      <button (click)="getTasksFromService()"> Get all tasks</button>
+    </div>
+    <div *ngFor="let task of tasks">
+      <span class="list-group-item d-flex justify-content-between align-items-center">
+        {{task.title}}
+        <button class="badge badge-primary badge-pill" (click)="getTask($event)" name="TaskButton" value={{task._id}}>
+          Open </button>
+      </span>
+    </div>
+    <div *ngIf="tasks.length > 0">
+      <h3> Task Information:</h3>
+      <div *ngIf="selectedTask['title'].length > 0">
+        <p> <b>Title: </b>  {{selectedTask['title']}} </p>
+        <p> <b>Description: </b> {{selectedTask['description']}} </p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="wrapperNarrow">
+    <button (click)="onButtonClick()">Click me!</button>
+    <button (click)="onButtonClickParams(5, 'hello')">Click me!</button>
+    <button (click)="onButtonClickEvent($event)">Click me!</button>
+  </div>
+  <div class="wrapperNarrow">
+    <button (click)="onButtonClickParam_e2eTest(5)">Click me!</button>
+  </div> -->
+
+  <!-- <div>
+    <h3>Value of num is: {{num}}</h3>
     <h3>Value of randNum is: {{randNum}}</h3>
-    <h3>{{str}}</h3>
     <input type="text" [value]="first_name" />
     <p *ngIf="loggedIn">You are logged in!</p>
     <p *ngFor="let snack of snacks">{{snack}}</p>
-    <p *ngIf="snacks.length < 3">You need more snacks.</p> -->
-    <ul>
-      <li *ngFor="let task of tasks">
-        {{task.title}}: {{task.description}}
-      </li>
-    </ul>
-
-    <h3> The third task is:</h3>
-    <ul *ngIf="tasks.length > 1">
-      <li>
-        {{tasks[2].title}}: {{tasks[2].description}}
-      </li>
-    </ul>
-  </div>
+    <p *ngIf="snacks.length < 3">You need more snacks.</p>
+  </div> -->
 
 </body>
 

@@ -4,6 +4,7 @@ const Users = require('../controllers/ctrl_users');
 
 module.exports = function (app) {
     app.get('/', (req, res) => {General.index(req, res);});
+    app.post('/e2etest', (req, res) => {Tasks.e2etest(req, res);});
     app.post('/api/tasks/newtask', (req, res) => {Tasks.newtask(req, res);});
     app.get('/api/tasks/retrieveall', (req,res)=> {Tasks.retrieveAll(req, res);});
     app.get('/api/tasks/retrieveId/:id', (req,res)=> {Tasks.retrieveId(req, res);});

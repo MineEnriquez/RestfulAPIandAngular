@@ -5,6 +5,11 @@ const flash = require('express-flash');
 const Task = MongModels.Task;
 
 module.exports = {
+    e2etest: function (req, res) {
+        console.log("Client - Server E2E test: ");
+        console.log (`Post event recived value: ${req.body.data}`);
+        console.log ();
+    },
     retrieveAll: function (req, res) {
         console.log("Retrieve all documents")
         // console.log(req);
