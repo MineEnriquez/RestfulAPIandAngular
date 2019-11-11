@@ -12,11 +12,6 @@ import { $ } from 'protractor';
 // Implement OnInit.
 export class AppComponent implements OnInit {
   title = 'Welcome to MEAN';
-  // num: number;
-  // randNum: number;
-  // first_name: string;
-  // snacks: string[];
-  // loggedIn: boolean;
   task_title: string;
   task_description: string;
 
@@ -27,12 +22,7 @@ export class AppComponent implements OnInit {
   // ngOnInit will run when the component is initialized, after the constructor method.
 
   ngOnInit() {
-    // this.getTasksFromService();
-    // this.num = 7;
-    // this.randNum = Math.floor((Math.random() * 2) + 1);
-    // this.first_name = 'Alpha';
-    // this.snacks = ["vanilla latte with skim milk", "brushed suede", "cookie"];
-    // this.loggedIn = true;
+
   }
 
   getTasksFromService() {
