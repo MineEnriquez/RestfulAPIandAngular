@@ -101,6 +101,7 @@ export class AppComponent implements OnInit {
       console.log(theform);
         theform[0].setAttribute("class", "hidden");
       console.log("-------Got our data! ", info)
+      this.getTasksFromService();
     });
   }
 }
