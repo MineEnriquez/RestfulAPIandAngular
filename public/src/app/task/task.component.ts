@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
-
+  @Input() taskToShow: any;    //Angular provides us @Input decorator by using that we can pass data from parent component to child component.
+  nametodisplay:string;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { 
+   
+    this.nametodisplay =" Bonita!!";
   }
 
 }

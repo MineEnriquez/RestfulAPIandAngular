@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from './http.service';
+import { Component, OnInit, Output } from '@angular/core';
+import { HttpService } from './services/http.service';
 import { $ } from 'protractor';
 
 
@@ -18,14 +18,21 @@ export class AppComponent implements OnInit {
   task_completed: boolean= false;
   taskObject: any= {title: "", description : "", completed: false};
   editTask: any= {_id: "", title: "", description : "", completed: false};
+  selectedTask: any= {_id: "", title: "", description : "", completed: false};
   tasks: any = [];
-
+  isVisible: boolean = false;
+  showTask: boolean = false;
+  @Output() fromChild: any;
 
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
     this.taskObject = {title: "", description : "", completed: false};
     this.getTasksFromService();
+  }
+
+  taskToShow(task){
+    this.selectedTask = task;
   }
 
   getTasksFromService() {
@@ -103,5 +110,11 @@ export class AppComponent implements OnInit {
       console.log("-------Got our data! ", info)
       this.getTasksFromService();
     });
+  }
+  hideMe(): void {
+    // this.isVisible = false;
+    let me = <HTMLTextAreaElement>event.target;
+    let theform = me.parentElement.parentElement.getElementsByTagName("form");
+      theform[0].setAttribute("class", "hidden");
   }
 }
