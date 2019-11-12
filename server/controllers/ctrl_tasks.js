@@ -30,6 +30,7 @@ module.exports = {
             .catch(err => res.json(err));
     },
     updateId: function (req, res) {
+        console.log("--------------------------");
         console.log("Update a document");
         console.log(req.body);
         Task.update({ _id: req.params.id }, req.body)

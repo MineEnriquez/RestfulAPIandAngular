@@ -13,7 +13,16 @@ export class HttpService {
     this.getByTitle("task 4");
   }
   getTasks() {
-    return this._http.get('/api/tasks/retrieveall'); //now this function will only invoke the call to the API instead of handling it.
+    return this._http.get('/api/tasks/retrieveall'); 
+  }
+  newTask(data: any) {
+    return this._http.post('/api/tasks/newtask', data); 
+  }
+  taskDelete(id: any) {
+    return this._http.delete('/api/tasks/Delete/' + id['id']);
+  }
+  taskEdit(id:any, data: any) {
+    return this._http.post('/api/tasks/Update/'+ id, data);
   }
   getById(data: Object) {
     return this._http.get('/api/tasks/retrieveId/' + data['id']); /* Same with this one */
