@@ -13,16 +13,16 @@
   <div class="wrapperNarrow">
     <h1>Restful Tasks API</h1>
     <h2>All the tasks:</h2>
-    <div >
+    <div class="newtask">
       <form (submit)="formSubmitNewTask()">
-        <p> {{taskObject | json}} </p>
+        <!-- <p> {{taskObject | json}} </p> -->
         Title: <input type="text" name="taskObject.title" [(ngModel)]="taskObject.title">
         Description: <input type="text" name="taskObject.description" [(ngModel)]="taskObject.description">
         Completed: <input type="checkbox" name="taskObject.completed" [(ngModel)]="taskObject.completed"><br>
-        <input type="submit" name="submit" value="Create New Task">
+        <input class="float-right" type="submit" name="submit" value="Create New Task">
       </form>
     </div>
-    <table>
+    <table class="tasklist">
       <tr *ngFor="let task of tasks">
         <td>
           {{task.title}}
@@ -45,32 +45,7 @@
         </td>
       </tr>
     </table>
-    <div *ngIf="tasks.length > 0" class="sideByside">
-      <h3> Task Information:</h3>
-      <div *ngIf="taskObject['title'].length > 0">
-        <p> <b>Title: </b> {{taskObject['title']}} </p>
-        <p> <b>Description: </b> {{taskObject['description']}} </p>
-      </div>
-    </div>
   </div>
-  <!-- <div class="wrapperNarrow">
-    <button (click)="onButtonClick()">Click me!</button>
-    <button (click)="onButtonClickParams(5, 'hello')">Click me!</button>
-    <button (click)="onButtonClickEvent($event)">Click me!</button>
-  </div>
-  <div class="wrapperNarrow">
-    <button (click)="onButtonClickParam_e2eTest(5)">Click me!</button>
-  </div> -->
-
-  <!-- <div>
-    <h3>Value of num is: {{num}}</h3>
-    <h3>Value of randNum is: {{randNum}}</h3>
-    <input type="text" [value]="first_name" />
-    <p *ngIf="loggedIn">You are logged in!</p>
-    <p *ngFor="let snack of snacks">{{snack}}</p>
-    <p *ngIf="snacks.length < 3">You need more snacks.</p>
-  </div> -->
-
 </body>
 
 </html>
